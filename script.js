@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
     //SHOW-HIDE CONTENT
 
-    let tabs=document.querySelectorAll('.menu__button'),
+    let tabs=document.querySelectorAll('.menu__item'),
         tabsContent = document.querySelectorAll('.tabcontent'),
         tabParent= document.querySelector('.menu'),
         serviceTabs=document.querySelectorAll('.service__button'),
@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
             titleLink.classList.remove('left__slide');
             subTitleLink.classList.remove('hide');
             subTitleLink.classList.add('show','fade');
-        },2000);
+        },5000);
         
         sectionTitles.forEach(item=>{
             item.classList.add('right__slide');
@@ -44,22 +44,22 @@ window.addEventListener('DOMContentLoaded', () => {
     function showTabContent(i = 0) {
         tabsContent[i].classList.add('show', 'fade');
         tabsContent[i].classList.remove('hide');
-        /* tabs[i].classList.add('active');  */ 
+        tabs[i].classList.add('active');  
         
             if(sectionTitles[i].classList.contains('right__slide')){
-                setTimeout(()=>{sectionTitles[i].classList.remove('right__slide')},1000);
+                setTimeout(()=>{sectionTitles[i].classList.remove('right__slide')},5000);
             }
             if(sectionTitles[i].classList.contains('left__slide')){
-                setTimeout(()=>{ sectionTitles[i].classList.remove('left__slide')},1000);
+                setTimeout(()=>{ sectionTitles[i].classList.remove('left__slide')},5000);
            }
 
-           if(tabsContent[i].classList.contains('personal__stylist__services')){
+        /*    if(tabsContent[i].classList.contains('personal__stylist__services')){
             setTimeout(()=>{ serviceTitles[0].classList.remove('right__slide')},1000);
-           }
+           } */
        
     }
 
-    /* hideTabContent(); */
+    hideTabContent();
     showTabContent();
 
 
@@ -90,7 +90,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     hideTabContent();
                     showTabContent(i);
    
-                    /* if(i=1){
+                    if(i=1){
                         showServiceTabContent();
                         servicesTabParent.addEventListener('click', (event) => {
                             let target = event.target;
@@ -112,7 +112,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                 });
                             }      
                         });
-                    } */
+                    }
                 }
             });
         }      
